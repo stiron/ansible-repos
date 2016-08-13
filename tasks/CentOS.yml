@@ -1,0 +1,16 @@
+---
+- name: Add the EPEL repository
+  tags:
+    - repos
+    - epel
+  yum:
+    name: "{{ epel_repo_url }}"
+    state: present
+
+- name: Import the EPEL GPG key
+  tags:
+    - repos
+    - epel
+  rpm_key:
+    key: "{{ epel_repo_gpg_key_url }}"
+    state: present
