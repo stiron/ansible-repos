@@ -6,6 +6,7 @@
   apt_repository:
     repo: "{{ vbox_repo_url }}"
     state: present
+    mode: 644
 
 - name: Import the Virtualbox GPG key
   apt_key:
