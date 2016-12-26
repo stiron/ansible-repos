@@ -1,2 +1,13 @@
 ---
-# Placeholder
+- name: Add the Virtualbox repository
+  tags:
+    - repos
+    - virtualbox
+  apt_repository:
+    repo: "{{ vbox_repo_url }}"
+    state: present
+
+- name: Import the Virtualbox GPG key
+  apt_key:
+    url: "{{ vbox_repo_gpg_key }}"
+    state: present
