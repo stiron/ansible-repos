@@ -3,7 +3,6 @@
   apt_repository:
     repo: "{{ item.value.url }}"
     state: present
-    filename: "{{ item.key }}"
     mode: 644
   with_dict: "{{ ubuntu_repos }}"
   when: ubuntu_repos is defined
