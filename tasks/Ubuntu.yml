@@ -1,14 +1,16 @@
 ---
-- name: Add the Virtualbox repository
-  tags:
-    - repos
-    - virtualbox
+- name: Add the repositories
   apt_repository:
-    repo: "{{ vbox_repo_url }}"
+    repo: "{{ item.value.url }}"
     state: present
+    filename: "{{ item.key }}"
     mode: 644
+  with_dict: "{{ ubuntu_repos }}"
+  when: ubuntu_repos is defined
 
-- name: Import the Virtualbox GPG key
+- name: Import the GPG keys
   apt_key:
-    url: "{{ vbox_repo_gpg_key }}"
+    url: "{{ item.value.gpg_key }}"
     state: present
+  with_dict: "{{ ubuntu_repos }}"
+  when: ubuntu_repos is defined
