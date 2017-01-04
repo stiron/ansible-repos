@@ -5,6 +5,7 @@
     baseurl: "{{ item.value.url }}"
     file: "{{ item.key }}"
     gpgkey: "{{ item.value.gpg_key }}"
+    description: "{{ item.value.description }}"
     state: present
   with_dict: "{{ centos_repos }}"
   when: centos_repos is defined
