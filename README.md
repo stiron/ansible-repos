@@ -1,7 +1,11 @@
 # Ansible role that sets up the repositories
 [![build status](https://gitlab.com/stiron/ansible-repos/badges/master/build.svg)](https://gitlab.com/stiron/ansible-repos/commits/master)
 
-# Role variables
+## Requirements
+
+This module requires Ansible 2.x version.
+
+## Role variables
 
 ```
 centos_repos:
@@ -16,3 +20,23 @@ ubuntu_repos:
     name: ansible
     url: 'ppa:ansible/ansible'
 ```
+
+## Examples
+
+```
+- hosts: all 
+  roles:
+    - repos
+```
+
+## Dependencies
+
+None
+
+## License
+
+BSD
+
+## Author
+
+Tamas Molnar
