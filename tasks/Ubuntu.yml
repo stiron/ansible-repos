@@ -5,6 +5,8 @@
     state: present
     mode: 644
   with_dict: "{{ ubuntu_repos }}"
+  tags:
+    - repos
   when: ubuntu_repos is defined
 
 - name: Import the GPG keys
@@ -12,4 +14,6 @@
     url: "{{ item.value.gpg_key }}"
     state: present
   with_dict: "{{ ubuntu_repos }}"
-  when: ubuntu_repos is defined
+  tags:
+    - repos
+  when: (item.value.gpg_key is defined) and (ubuntu_repos is defined)

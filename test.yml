@@ -14,3 +14,6 @@
         name: VirtualBox
         url: "deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib"
         gpg_key: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+      ansible:
+        name: ansible
+        url: 'ppa:ansible/ansible'
