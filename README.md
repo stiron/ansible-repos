@@ -1,4 +1,5 @@
 # Ansible role that sets up the repositories
+
 [![build status](https://gitlab.com/stiron/ansible-repos/badges/master/build.svg)](https://gitlab.com/stiron/ansible-repos/commits/master)
 
 ## Requirements
@@ -17,8 +18,11 @@ centos_repos:
 
 ubuntu_repos:
   ansible:
-    name: ansible
     url: 'ppa:ansible/ansible'
+  docker:
+    url: "deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main"
+    keyserver: hkp://ha.pool.sks-keyservers.net:80
+    id: 58118E89F3A912897C070ADBF76221572C52609D
 ```
 
 ## Examples

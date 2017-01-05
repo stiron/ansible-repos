@@ -9,7 +9,7 @@
     - repos
   when: ubuntu_repos is defined
 
-- name: Import the GPG keys
+- name: Import the GPG keys from URL
   apt_key:
     url: "{{ item.value.gpg_key }}"
     state: present
@@ -17,3 +17,12 @@
   tags:
     - repos
   when: (item.value.gpg_key is defined) and (ubuntu_repos is defined)
+
+- name: Import the GPG keys from server with id
+  apt_key:
+    keyserver: "{{ item.value.keyserver }}"
+    id: "{{ item.value.id }}"
+  with_dict: "{{ ubuntu_repos }}"
+  tags:
+    - repos
+  when: (item.value.keyserver is defined) and (ubuntu_repos is defined)
