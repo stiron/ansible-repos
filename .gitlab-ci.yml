@@ -11,7 +11,7 @@ Centos6Test:
 UbuntuTest:
   image: "ubuntu:16.04"
   before_script:
-    - apt-get update && apt-get -y install ansible openssh-server
+    - apt-get update && apt-get -y install ansible openssh-server apt-transport-https
     - echo localhost > inventory
   script:
     - ansible-playbook --syntax-check -i inventory test.yml
