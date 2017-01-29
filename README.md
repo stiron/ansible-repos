@@ -39,8 +39,8 @@ None
 
 ## License
 
-BSD
+MIT
 
 ## Author
 
-Tamas Molnar
+Tamas Molnar - <tmolnar0831@gmail.com>
