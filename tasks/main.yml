@@ -1,2 +1,2 @@
 ---
-- include_tasks: "{{ ansible_distribution }}.yml"
+- include: "{{ ansible_distribution }}.yml"
