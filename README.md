@@ -1,10 +1,10 @@
-# Ansible role that sets up the repositories
+# Ansible role that sets up the general YUM/APT repositories
 
 [![build status](https://gitlab.com/stiron/ansible-repos/badges/master/build.svg)](https://gitlab.com/stiron/ansible-repos/commits/master)
 
 ## Requirements
 
-This module requires Ansible 2.x version.
+This module requires Ansible >2.3 version.
 
 ## Role variables
 
