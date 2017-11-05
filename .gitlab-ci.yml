@@ -1,9 +1,7 @@
-Centos6Test:
-  image: "centos:6"
+Centos7Test:
+  image: "centos:7"
   before_script:
-    - rpm -i https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-    - yum -y install ansible openssh-server openssh-client
-    - service sshd start
+    - rpm -i https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     - echo localhost > inventory
   script:
     - ansible-playbook --syntax-check -i inventory test.yml
@@ -11,7 +9,7 @@ Centos6Test:
 UbuntuTest:
   image: "ubuntu:16.04"
   before_script:
-    - apt-get update && apt-get -q -y install openssh-server apt-transport-https software-properties-common python-software-properties
+    - apt-get update && apt-get -q -y install apt-transport-https software-properties-common python-software-properties
     - apt-add-repository ppa:ansible/ansible
     - apt-get -q update
     - apt-get -q -y install ansible
