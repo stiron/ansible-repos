@@ -1,4 +1,4 @@
-Centos7Test:
+Centos 7 Test:
   image: "centos:7"
   before_script:
     - rpm -i https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
@@ -7,13 +7,12 @@ Centos7Test:
   script:
     - ansible-playbook --syntax-check -i inventory test.yml
     - ansible-playbook -i inventory test.yml --connection=local -u root --become-user=root
-UbuntuTest:
+Ubuntu 16.04 Test:
   image: "ubuntu:16.04"
   before_script:
     - apt-get update && apt-get -q -y install apt-transport-https software-properties-common python-software-properties
     - apt-add-repository ppa:ansible/ansible
-    - apt-get -q update
-    - apt-get -q -y install ansible
+    - apt-get -q update && apt-get -q -y install ansible
     - echo localhost > inventory
   script:
     - ansible-playbook --syntax-check -i inventory test.yml
