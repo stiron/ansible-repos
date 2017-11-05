@@ -2,6 +2,7 @@ Centos7Test:
   image: "centos:7"
   before_script:
     - rpm -i https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    - yum -y install ansible
     - echo localhost > inventory
   script:
     - ansible-playbook --syntax-check -i inventory test.yml
