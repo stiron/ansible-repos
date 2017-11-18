@@ -1,7 +1,7 @@
 ---
 - hosts: all
   tasks:
-    - include: tasks/main.yml
+    - include_tasks: tasks/main.yml
   vars:
     centos_repos:
       epel:
