@@ -6,7 +6,7 @@ Centos 7 Test:
     - echo localhost > inventory
   script:
     - ansible-playbook --syntax-check -i inventory test.yml
-    - ansible-playbook -i inventory test.yml --connection=local -u root --become-user=root
+    - ansible-playbook -i inventory test.yml --connection=local --user=root --become-user=root
 Ubuntu 16.04 Test:
   image: "ubuntu:16.04"
   before_script:
@@ -16,4 +16,4 @@ Ubuntu 16.04 Test:
     - echo localhost > inventory
   script:
     - ansible-playbook --syntax-check -i inventory test.yml
-    - ansible-playbook -i inventory test.yml --connection=local -u root --become-user=root
+    - ansible-playbook -i inventory test.yml --connection=local --user=root --become-user=root
